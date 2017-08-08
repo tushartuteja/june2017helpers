@@ -5,6 +5,7 @@
 <%= current_user.email %>
 
 <%= prettify_boolean user_signed_in? %>
+<%= will_paginate @blogs %>
 
 <table id="blogs">
   <thead>
@@ -31,5 +32,6 @@
 </table>
 
 <br>
+<%= will_paginate @blogs %>
 
 <%= link_to 'New Blog', new_blog_path %>
