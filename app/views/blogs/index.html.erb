@@ -7,6 +7,15 @@
 <%= prettify_boolean user_signed_in? %>
 <%= will_paginate @blogs %>
 
+
+<%= form_tag '/blogs', method: :get do %>
+<%= text_field_tag :search , @search %>
+
+
+<%= submit_tag "Search" %>
+
+<% end %>
+
 <table id="blogs">
   <thead>
     <tr>

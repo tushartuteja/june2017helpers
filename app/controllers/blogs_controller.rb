@@ -5,7 +5,13 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
-    @blogs = Blog.paginate(:page => params[:page]).order('created_at DESC')
+    @search = params[:search]
+    if @search && @search.length > 0
+      @blogs = Blog.where("title like '%#{@search}%' or content like '%#{@search}%'").paginate(:page => params[:page]).order('created_at DESC')
+    else
+      @blogs = Blog.paginate(:page => params[:page]).order('created_at DESC')
+    end
+
   end
 
   # GET /blogs/1
