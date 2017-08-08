@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+<h2><%= user_details %></h2>
+<h1>Listing Blogs</h1>
+
+<%= current_user.email %>
+
+<%= prettify_boolean user_signed_in? %>
+
+<table id="blogs">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Content</th>
+      <th>Published</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @blogs.each do |blog| %>
+      <tr>
+        <td><%= blog.title %></td>
+        <td><%= blog.content %></td>
+        <td><%= prettify_boolean blog.published %></td>
+        <td><%= link_to 'Show', blog %></td>
+        <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
+        <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Blog', new_blog_path %>

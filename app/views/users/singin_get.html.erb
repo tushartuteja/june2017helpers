@@ -1,0 +1,14 @@
+<h1>User#singin_get</h1>
+<p>Find me in app/views/user/singin_get.html.erb</p>
+
+<%= form_tag users_signin_path do %>
+<%= label_tag :email %>
+<%= text_field_tag :email %>
+<br>
+
+<%= label_tag :password %>
+<%= password_field_tag :password %>
+<br>
+<%= submit_tag "Signin" %>
+
+<% end %>
